@@ -1,0 +1,35 @@
+PHYTEC RUGGEDBOARD A5D2X
+GPIO COMMAND LINE TESTING
+
+1. Mount debugfs
+
+mount -t debugfs none /sys/kernel/debug
+
+2. Export GPIO 89
+
+echo 89 > /sys/class/gpio/export
+
+3. Check available GPIOs
+
+ls /sys/class/gpio/
+
+Result:
+PC13
+PC21
+PC23
+PC25
+export
+gpiochip0
+unexport
+
+4. Configure PC25 as output
+
+echo out > /sys/class/gpio/PC25/direction
+
+5. Set PC25 HIGH
+
+echo 1 > /sys/class/gpio/PC25/value
+
+6. Set PC25 LOW
+
+echo 0 > /sys/class/gpio/PC25/value
